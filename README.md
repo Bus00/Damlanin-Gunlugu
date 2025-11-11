@@ -14,5 +14,5 @@ Tübitak yapamayınca buraya sardım yanii..🥰
 Veri dosyası: **BKB_WaterQualityData_2020084.csv**  
 İçeriğinde 1994 yılından itibaren çeşitli bölgelerde ölçülen su kalite parametreleri bulunmaktadır.
 
-** Veri dosyasını kaggle'dan temin ettim sizin elinizde hazır veriler varsa csv dosyası halinde(ezcel yaanniii) halinde burada çalıştırabilirsiniz.
+** Veri dosyasını kaggle'dan temin ettim sizin elinizde hazır veriler varsa csv dosyası halinde(excel yaanniii) halinde burada çalıştırabilirsiniz.
 *KOOLAYY GELSİİNN 🙂‍↔️
