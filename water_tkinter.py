@@ -5,15 +5,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-# --- ANA PENCERE ---
 root = tk.Tk()
-root.title("💧🐣 Su Kalitesi Analiz Paneli")
-root.state("zoomed")  # tam ekran yapmak için
+root.title("💧Su Kalitesi Analiz Paneli")
+root.state("zoomed") 
 root.config(bg="#E1F5FE") 
 
-df = None  # veri globali için
+df = None 
 
-# --- DOSYA YÜKLEME ---
 def dosya_yukle():
     global df
     filepath = filedialog.askopenfilename(
@@ -22,10 +20,10 @@ def dosya_yukle():
     )
     if filepath:
         df = pd.read_csv(filepath)
-        messagebox.showinfo("Başarılı ✅", f"Veri yüklendi: {len(df)} satır bulundu.")
+        messagebox.showinfo("Başarılı ", f"Veri yüklendi: {len(df)} satır bulundu.")
         dosya_label.config(text=f"Yüklü Dosya: {filepath.split('/')[-1]}")
 
-# --- PARAMETRELERİN TÜRKÇELEŞTİRİLMESİ --- (türkçesini anlayabilmek için)
+
 def duzelt(df):
     df = df.rename(columns={
         "Salinity (ppt)": "Tuzluluk",
@@ -36,10 +34,10 @@ def duzelt(df):
     })
     return df
 
-# --- GRAFİK 1: Parametre Dağılımları ---
+
 def grafik_parametreler():
     if df is None:
-        messagebox.showwarning("Uyarı 🙅‍♀️⚠️", "Lütfen önce veri yükleyin.")
+        messagebox.showwarning("Uyarı⚠️", "Lütfen önce veri yükleyin.")
         return
     local_df = duzelt(df)
     local_df[["Tuzluluk", "Oksijen", "pH", "Sıcaklık"]].hist(
@@ -48,14 +46,13 @@ def grafik_parametreler():
     plt.suptitle("💧 Su Kalitesi Parametrelerinin Dağılımı", fontsize=16, fontweight="bold")
     plt.show()
 
-# --- GRAFİK 2: Yıllara Göre Ortalama Kalite ---
+
 def grafik_yillar():
     if df is None:
-        messagebox.showwarning("Uyarı 🙅‍♀️⚠️", "Lütfen önce veri yükleyin.")
+        messagebox.showwarning("Uyarı ⚠️", "Lütfen önce veri yükleyin.")
         return
     local_df = duzelt(df)
 
-    # Skor fonksiyonları
     def skor_ph(x):
         if pd.isna(x): return np.nan
         if 6.5 <= x <= 8.5: return 1
@@ -89,7 +86,7 @@ def grafik_yillar():
     local_df["Su_Kalitesi_Skoru"] = local_df[["pH_skor", "Oksijen_skor", "Sıcaklık_skor", "Tuzluluk_skor"]].mean(axis=1)
     yearly = local_df.groupby("Yıl")["Su_Kalitesi_Skoru"].mean()
 
-    # Grafik
+
     plt.figure(figsize=(10,5))
     plt.plot(yearly.index, yearly.values, marker="o", linewidth=2, color="#0277BD")
     plt.title("📅 Yıllara Göre Ortalama Su Kalitesi Skoru", fontsize=15, fontweight="bold")
@@ -98,7 +95,7 @@ def grafik_yillar():
     plt.grid(True)
     plt.show()
 
-    # Ortalama sonucu göster
+
     ort = yearly.mean()
     if ort > 0.7:
         renk = "#2E7D32"  
@@ -109,9 +106,9 @@ def grafik_yillar():
 
     sonuc_label.config(text=f"🌊 Ortalama Su Kalitesi: {ort:.2f}", bg=renk, fg="white")
 
-# --- ARAYÜZ ---
+
 title_label = tk.Label(
-    root, text="💦🌟💧🫧SU KALİTESİ ANALİZ PANELİ💦🌟💧🫧",
+    root, text="💧🫧SU KALİTESİ ANALİZ PANELİ💧🫧",
     font=("Arial", 22, "bold"), bg="#E1F5FE", fg="#0D47A1"
 )
 title_label.pack(pady=20)
