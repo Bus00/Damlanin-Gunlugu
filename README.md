@@ -1,18 +1,23 @@
-# 💧 Water Quality Analysis Project
+💧 Water Quality Analysis Project
 
 Bu proje, su kalitesi verilerini analiz ederek yıllara göre değişimleri ve önemli parametrelerin (pH, çözünmüş oksijen, tuzluluk, sıcaklık vb.) etkilerini incelemeyi amaçlar.  
-Python ile veri analizi ve görselleştirme teknikleri kullanılmıştır. Bu proje veri analizi alanında yaptığım ilk projemdirrr.. 
-Tübitak yapamayınca buraya sardım yanii..🥰
+Python ile veri analizi ve görselleştirme teknikleri kullanılmıştır. 
 
-# 📊 Kullanılan Teknolojiler
+Kullanılan Teknolojiler:
 + Python 
 - pandas 
 - matplotlib
 - numpy
+  
+Kullanılan Parametreler:
+-pH
+-Çözünmüş Oksijen
+-Sıcaklık
+-Tuzluluk
+Her parametre 0–1 arası normalize edilerek skorlanır ve ortalaması alınarak
+Su Kalitesi Skoru hesaplanır.
 
-# 📁 Veri Seti
-Veri dosyası: **BKB_WaterQualityData_2020084.csv**  
+Veri dosyası: BKB_WaterQualityData_2020084.csv  
 İçeriğinde 1994 yılından itibaren çeşitli bölgelerde ölçülen su kalite parametreleri bulunmaktadır.
+Veri dosyası kaggle'dan temin edilmiştir.
 
-** Veri dosyasını kaggle'dan temin ettim sizin elinizde hazır veriler varsa csv dosyası halinde(excel yaanniii) halinde burada çalıştırabilirsiniz.
-*KOOLAYY GELSİİNN 🙂‍↔️
